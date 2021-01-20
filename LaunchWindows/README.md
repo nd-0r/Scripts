@@ -1,1 +1,0 @@
-A shell script to toggle a vm in VMWare Fusion, which I bind to a quick action on the MacBook Pro touchbar. Useful if you need to open windows quickly to launch Zoom for a class!

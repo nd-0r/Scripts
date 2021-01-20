@@ -1,1 +1,0 @@
-Uses the sox command line tool to split audio files into their constituent channels. I use this frequently in Logic Pro/IL Edison when removing ticks and blemishes from records.

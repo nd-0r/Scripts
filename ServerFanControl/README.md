@@ -1,1 +1,0 @@
-I use a Dell R715 to run Freenas, a Windows VM, a few Ubuntu/CentOS VM's for Pihole, Openvpn, and experimentation, along with PfSense. The fans get a little loud so I run this script as a service on boot to control the fan speed with the ipmi tool.

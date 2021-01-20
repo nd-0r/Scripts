@@ -1,1 +1,0 @@
-Using the cv2 computer vision library for python, detect if an image is blurry or not.
