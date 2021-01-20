@@ -1,0 +1,1 @@
+I find zoom links frustrating because they point to Zoom's website first instead of opening the application directly. While I assume this is primarily to help users who don't already have zoom installed to install zoom, it also seems like an opportunity for Zoom to gather more data than necessary. This script parses zoom links into URI's that open in Zoom directly.

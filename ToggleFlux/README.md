@@ -1,0 +1,1 @@
+Even though Apple finally introduced a night mode feature, I'm still a loyal F.lux user if only for the nostalgia. I use this to toggle F.lux with GUI scripting, although it's a bit slow.
