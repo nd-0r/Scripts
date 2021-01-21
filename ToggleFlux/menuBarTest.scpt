@@ -47,7 +47,6 @@ tell application "System Events" to tell process "Flux"
      		end tell
 		end try
 		*)
-	end tell
 
 end tell
 end ignoring
