@@ -6,5 +6,4 @@ if [[ $vms == *"Boot Camp"* ]]; then
 	/Applications/VMware\ Fusion.app/Contents/Public/vmrun -T fusion stop '/Users/andreworals/Library/Application Support/VMware Fusion/Virtual Machines/Boot Camp/Boot Camp.vmwarevm' && osascript -e 'quit app "VMware Fusion"'
 else
 	/Applications/VMware\ Fusion.app/Contents/Public/vmrun -T fusion start '/Users/andreworals/Library/Application Support/VMware Fusion/Virtual Machines/Boot Camp/Boot Camp.vmwarevm'
-	osascript /Users/andreworals/testscripts/autoZoom/enterPwd.scpt
 fi
