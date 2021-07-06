@@ -48,10 +48,15 @@ class YMCA:
 
 
 # %%
-
+base_url = "https://app.appointmentking.com/scheduler_self_service.php"
+ymcas = [YMCA(), YMCA()] # add ymcas
+free_times = {day_num : [("07:00", timedelta(minutes=30)), ("18:30", timedelta(minutes=90))] for day_num in range(0, 7)} # time list in order of preference
 
 # %%
-day_to_search = datetime.today().date() + timedelta(6) # TODO - make week | one week from today 
+user = User() # create user
+
+# %%
+day_to_search = datetime.today().date() + timedelta(6) # one week from today 
 
 def get_selection_value(options, name_to_find):
   for element in options:
@@ -128,15 +133,6 @@ def book_best_appt(request_url, dom_id, sess_id, driver):
 
   response = requests.request('POST', base_url, data=payload, headers=heads)
 
-  expected = 'request=make_request&domid=164&sessid=' + sess_id + '&datetime=2021-06-19+07%3A45%3A00&availability_id=&appointment_type_id=30764&appointment_id=5779352'
-
-  # print("headers: ", response.request.headers) # TODO - remove
-  # print("body: ", response.request.body) # TODO - remove
-  # print(response.request.body == expected) # TODO - remove
-  # print([i for i in ndiff(response.request.body, expected) if '+' in i or '-' in i]) # TODO - remove
-  # print("url: ", response.request.url) # TODO - remove
-  # print("response: ", response.content) # TODO - remove
-
   try:
     if (response.json()['success'] != '1'):
       logging.error(f'Could not schedule appointment for date {str(day_to_search)}')
@@ -182,9 +178,7 @@ with webdriver.Firefox() as driver:
     elif (ymca.desired_staff_member and not ymca.desired_appt_type): # use staff dropdown
       staff_dropdown = Select(driver.find_element(By.NAME, "trainer-filter")).options
 
-      # TODO - re-implement |  for staff in ymca.desired_staff_member:
-      staff_id = get_selection_value(staff_dropdown, ymca.desired_staff_member[0])
-      request_url = build_request_list_url(str(ymca.dom_id), sess_id, str(day_to_search), trainer_filter=staff_id)
-      book_best_appt(request_url, ymca.dom_id, sess_id, driver)
-
-    # driver.get_screenshot_as_file("/Users/andreworals/Downloads/test.png")
+      for staff in ymca.desired_staff_member:
+        staff_id = get_selection_value(staff_dropdown, ymca.desired_staff_member[0])
+        request_url = build_request_list_url(str(ymca.dom_id), sess_id, str(day_to_search), trainer_filter=staff_id)
+        book_best_appt(request_url, ymca.dom_id, sess_id, driver)
