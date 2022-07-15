@@ -1,0 +1,3 @@
+pyobjc-framework-ScriptingBridge==8.5
+pyobjc==8.5
+genanki==0.13.0
